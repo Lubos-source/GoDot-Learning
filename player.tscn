@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://eyrf1foyxmyu"]
+
+[ext_resource type="Texture2D" uid="uid://chkmeg83o22yy" path="res://textures/Sylvester-Stallone.09.jpg" id="1_mh7j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7nug"]
+size = Vector2(222, 310)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(5, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(57, 81.1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mh7j2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(57.5, 82.85)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_r7nug")
