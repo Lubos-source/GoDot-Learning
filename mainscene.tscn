@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbxw1i0siqjvf"]
+[gd_scene load_steps=13 format=3 uid="uid://bbxw1i0siqjvf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_v64ds"]
 [ext_resource type="Texture2D" uid="uid://bvxs7vnpddcuv" path="res://textures/1641264230-origin.jpg" id="2_cigwr"]
 [ext_resource type="PackedScene" uid="uid://bc6p2ql0fkr4q" path="res://area_2d.tscn" id="3_irw2m"]
-[ext_resource type="Script" path="res://area_2d.gd" id="4_5e0rp"]
 [ext_resource type="PackedScene" uid="uid://cv5ljclnt3r6" path="res://coin.tscn" id="5_j7scw"]
 [ext_resource type="PackedScene" uid="uid://bc7uy863m3dwt" path="res://animated_player.tscn" id="6_hlmii"]
+[ext_resource type="PackedScene" uid="uid://bd6ynfil6wbci" path="res://inventory/inv_ui.tscn" id="7_8j240"]
 [ext_resource type="Texture2D" uid="uid://chkmeg83o22yy" path="res://textures/Sylvester-Stallone.09.jpg" id="8_hyq7b"]
+[ext_resource type="PackedScene" uid="uid://bs1mkvktusgdt" path="res://ball_2_collectable.tscn" id="8_p0dwt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kdfnw"]
 distance = -41.9565
@@ -28,16 +29,52 @@ position = Vector2(-551, 4)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_v64ds")
 
+[node name="coins" type="Node" parent="main"]
+
+[node name="Coin" parent="main/coins" instance=ExtResource("5_j7scw")]
+position = Vector2(-2873, -1593.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Coin2" parent="main/coins" instance=ExtResource("5_j7scw")]
+position = Vector2(-2881, -1438)
+scale = Vector2(1.5, 1.5)
+
+[node name="Coin3" parent="main/coins" instance=ExtResource("5_j7scw")]
+position = Vector2(-3182, -1769)
+scale = Vector2(1.5, 1.5)
+
+[node name="balls" type="Node" parent="main"]
+
+[node name="ball2_collectable" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-559, 611)
+scale = Vector2(1.5, 1.5)
+
+[node name="ball2_collectable2" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-249, 297)
+scale = Vector2(1.5, 1.5)
+
+[node name="ball2_collectable3" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-273, 141)
+scale = Vector2(1.5, 1.5)
+
+[node name="ball2_collectable4" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-373, 135)
+scale = Vector2(1.5, 1.5)
+
+[node name="ball2_collectable5" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-359, 241)
+scale = Vector2(1.5, 1.5)
+
+[node name="ball2_collectable6" parent="main/balls" instance=ExtResource("8_p0dwt")]
+position = Vector2(-367, 352)
+scale = Vector2(1.5, 1.5)
+
 [node name="background" type="Sprite2D" parent="main"]
 position = Vector2(824.667, 444.667)
 scale = Vector2(2, 2)
 texture = ExtResource("2_cigwr")
 
 [node name="Area2D" parent="main" instance=ExtResource("3_irw2m")]
-script = ExtResource("4_5e0rp")
-
-[node name="Coin" parent="main" instance=ExtResource("5_j7scw")]
-position = Vector2(-1548, -1065)
 
 [node name="levo" type="StaticBody2D" parent="main"]
 position = Vector2(-31.3333, 297.333)
@@ -96,10 +133,9 @@ region_enabled = true
 region_rect = Rect2(521.513, 0, 28.4872, 771.346)
 
 [node name="AnimatedPlayer" parent="main" instance=ExtResource("6_hlmii")]
-position = Vector2(8.66666, 262.667)
+position = Vector2(91.3333, 370.667)
 
 [node name="Camera2D" type="Camera2D" parent="main/AnimatedPlayer"]
-position = Vector2(89, 86)
 limit_left = -900
 limit_top = 20
 limit_right = 500
@@ -107,7 +143,16 @@ limit_bottom = 800
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="Inv_UI2" parent="main/AnimatedPlayer" instance=ExtResource("7_8j240")]
+offset_left = -70.0
+offset_top = 7.33296
+offset_right = 90.0
+offset_bottom = 165.333
+
+[connection signal="PickUp" from="main/coins/Coin" to="main" method="_on_coin_pick_up"]
+[connection signal="PickUp" from="main/coins/Coin2" to="main" method="_on_coin_pick_up"]
+[connection signal="PickUp" from="main/coins/Coin3" to="main" method="_on_coin_pick_up"]
 [connection signal="OnEnter" from="main/Area2D" to="main" method="_on_area_2d_on_enter"]
+[connection signal="OnExit" from="main/Area2D" to="main" method="_on_area_2d_on_exit"]
 [connection signal="body_entered" from="main/Area2D" to="main" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="main/Area2D" to="main/Area2D" method="_on_body_entered"]
-[connection signal="PickUp" from="main/Coin" to="main" method="_on_coin_pick_up"]

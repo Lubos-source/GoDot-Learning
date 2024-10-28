@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc7uy863m3dwt"]
+[gd_scene load_steps=14 format=3 uid="uid://bc7uy863m3dwt"]
 
 [ext_resource type="Script" path="res://animated_player.gd" id="1_2d05w"]
 [ext_resource type="Texture2D" uid="uid://df4bwwwi1mkju" path="res://textures/Soldier-Walk.png" id="1_cltp7"]
+[ext_resource type="Resource" uid="uid://bv65hntdnxih0" path="res://inventory/player_inv.tres" id="2_3apwj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myy61"]
 atlas = ExtResource("1_cltp7")
@@ -71,16 +72,14 @@ animations = [{
 size = Vector2(32, 49)
 
 [node name="AnimatedPlayer" type="CharacterBody2D"]
-position = Vector2(-56, 3)
 script = ExtResource("1_2d05w")
+inv = ExtResource("2_3apwj")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(90.5, 90.5)
 scale = Vector2(2.81, 2.81)
 sprite_frames = SubResource("SpriteFrames_ctxdr")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(91, 85.5)
 shape = SubResource("RectangleShape2D_3pw8k")

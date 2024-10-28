@@ -1,20 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc6p2ql0fkr4q"]
+[gd_scene load_steps=6 format=3 uid="uid://bc6p2ql0fkr4q"]
 
-[ext_resource type="Texture2D" uid="uid://8frkwstmlxeq" path="res://textures/logopng.png" id="1_fnisl"]
+[ext_resource type="Texture2D" uid="uid://chkmeg83o22yy" path="res://textures/Sylvester-Stallone.09.jpg" id="1_7m4sv"]
+[ext_resource type="Script" path="res://area_2d.gd" id="1_k0okn"]
+[ext_resource type="FontFile" uid="uid://cuy1yy8v6ys1e" path="res://fonts/minecraft.ttf" id="3_bm51v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blg4b"]
-radius = 51.0098
+radius = 80.025
+
+[sub_resource type="LabelSettings" id="LabelSettings_b4rh6"]
+line_spacing = 5.0
+font = ExtResource("3_bm51v")
 
 [node name="Area2D" type="Area2D"]
-position = Vector2(282, 92)
-metadata/_edit_group_ = true
+position = Vector2(285, 94)
+script = ExtResource("1_k0okn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.99994, -9.99998)
-scale = Vector2(0.0576941, 0.0576941)
-texture = ExtResource("1_fnisl")
+position = Vector2(8.53351, 12.3733)
+scale = Vector2(0.15806, 0.15806)
+texture = ExtResource("1_7m4sv")
 region_rect = Rect2(136, 126, 233.724, 231.163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, -7.00001)
+position = Vector2(9, 12)
 shape = SubResource("CircleShape2D_blg4b")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 94.0
+offset_bottom = 12.0
+text = "press F"
+label_settings = SubResource("LabelSettings_b4rh6")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

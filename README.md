@@ -9,6 +9,9 @@
 - [x] Enterable area
 - [x] Moving, Colliding Animated Player Character
 - [x] Different object like different reusable scenes
+- [x] Interactive object (with which can Player interact by pressing key)
+- [x] Popup Label Message (show on close)
+- [x] Inventory with slots + different types of items with amount collected 
 
 
 ## TO DO:
@@ -17,8 +20,6 @@
     - [ ] Assets
     - [ ] Scripts
     - [ ] ...
-- [ ] Interactive object (with which can Player interact by pressing key)
-- [ ] Popup messages
 - [ ] UI
 - [ ] Game menu
 - [ ] Audio Effects

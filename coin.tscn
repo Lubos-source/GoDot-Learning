@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv5ljclnt3r6"]
+[gd_scene load_steps=5 format=3 uid="uid://cv5ljclnt3r6"]
 
-[ext_resource type="Texture2D" uid="uid://8frkwstmlxeq" path="res://textures/logopng.png" id="1_8jjij"]
+[ext_resource type="Resource" uid="uid://fq47tlalfcv1" path="res://inventory/items/purpleball.tres" id="1_647s5"]
+[ext_resource type="Texture2D" uid="uid://bmynxbmb2d7sq" path="res://textures/purpleball.png" id="2_sx7lr"]
 
 [sub_resource type="GDScript" id="GDScript_il0is"]
 script/source = "extends Area2D
+
+@export var item: InvItem
+
+var player = null
 
 signal PickUp
 
@@ -19,25 +24,33 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	PickUp.emit()
+	if body.has_method(\"player\"):
+		#print(\"player\")
+		player = body
+		player.collect(item)
+		PickUp.emit()
+	else:
+		print(\"NOT a player\")
 	queue_free() # odstraní scénu (zde coin)
+	
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mbk80"]
-radius = 143.842
+radius = 71.7
 
 [node name="Coin" type="Area2D"]
-position = Vector2(-1655, -1246)
+position = Vector2(-1659, -1257)
 script = SubResource("GDScript_il0is")
+item = ExtResource("1_647s5")
 metadata/_edit_group_ = true
 
 [node name="CoinTexture" type="Sprite2D" parent="."]
-position = Vector2(1735.4, 1318.5)
-scale = Vector2(0.043, 0.043)
-texture = ExtResource("1_8jjij")
+position = Vector2(1800, 1300)
+scale = Vector2(1.25426, 1.25426)
+texture = ExtResource("2_sx7lr")
 
 [node name="CoinCollision" type="CollisionShape2D" parent="."]
-position = Vector2(1734, 1321)
+position = Vector2(1801, 1299)
 scale = Vector2(0.265, 0.265)
 shape = SubResource("CircleShape2D_mbk80")
 

@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
+@export var inv: Inv
+
+
 var speed = 200  # Nastav rychlost postavy
 var direction = Vector2.ZERO
 
@@ -21,7 +24,13 @@ func _process(_delta):
 	else:
 		_animated_sprite.stop()
 		
-	if Input.is_action_just_pressed("ui_select"):
-		print("Klávesa stisknuta")
+	#if Input.is_action_just_pressed("ui_select"):
+	#	print("Klávesa stisknuta")
 		
 	move_and_slide()
+
+func collect(item):
+	inv.insert(item)
+	
+func player():
+	pass

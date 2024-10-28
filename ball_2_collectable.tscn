@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs1mkvktusgdt"]
+
+[ext_resource type="Script" path="res://ball_2_collectable.gd" id="1_vmf1m"]
+[ext_resource type="Resource" uid="uid://cmg7iavyc7gqe" path="res://inventory/items/ball2.tres" id="2_4syws"]
+[ext_resource type="Texture2D" uid="uid://bavv28sl2w5ew" path="res://textures/ball2.png" id="2_8co11"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dtvya"]
+radius = 20.0998
+
+[node name="ball2_collectable" type="StaticBody2D"]
+script = ExtResource("1_vmf1m")
+item = ExtResource("2_4syws")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8co11")
+
+[node name="interactable_area" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/interactable_area"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_dtvya")
+
+[connection signal="body_entered" from="Sprite2D/interactable_area" to="." method="_on_interactable_area_body_entered"]
