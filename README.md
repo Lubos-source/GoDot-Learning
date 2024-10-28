@@ -13,6 +13,7 @@
 - [x] Popup Label Message (show on close)
 - [x] Inventory with slots + different types of items with amount collected 
 - [x] Game Menu
+- [x] Scripted Label animation in menu
 
 
 ## TO DO:
