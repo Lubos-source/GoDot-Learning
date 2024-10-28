@@ -12,6 +12,7 @@
 - [x] Interactive object (with which can Player interact by pressing key)
 - [x] Popup Label Message (show on close)
 - [x] Inventory with slots + different types of items with amount collected 
+- [x] Game Menu
 
 
 ## TO DO:
@@ -21,7 +22,7 @@
     - [ ] Scripts
     - [ ] ...
 - [ ] UI
-- [ ] Game menu
+- [ ] Game menu - Settings 
 - [ ] Audio Effects
 - [ ] More animations
 - [ ] Story teller AI Character

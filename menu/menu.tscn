@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=3 uid="uid://usltam3dpg1g"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_k3827"]
+[ext_resource type="Texture2D" uid="uid://juoc4usricys" path="res://textures/menubckgrnd.jpg" id="1_y7sv8"]
+[ext_resource type="FontFile" uid="uid://cuy1yy8v6ys1e" path="res://fonts/minecraft.ttf" id="3_hcm55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3twrt"]
+texture = ExtResource("1_y7sv8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tl1l1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8ib8"]
+bg_color = Color(0.486889, 0.314049, 0.175574, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 2.03)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae8gy"]
+bg_color = Color(0.319557, 0.198705, 0.101498, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 2.03)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4imr6"]
+bg_color = Color(0.613408, 0.404317, 0.237839, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2(0, 2.03)
+
+[sub_resource type="Animation" id="Animation_rxtux"]
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_animation/title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(426, 101), Vector2(426, 90), Vector2(426, 101)]
+}
+
+[sub_resource type="Animation" id="Animation_sjmxx"]
+resource_name = "title_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_animation/title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.36667, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(426, 101), Vector2(426, 95), Vector2(426, 101)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iasrv"]
+_data = {
+"RESET": SubResource("Animation_rxtux"),
+"title_animation": SubResource("Animation_sjmxx")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k3827")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.605274, 0.605274, 0.605274, 1)
+self_modulate = Color(0.733005, 0.733005, 0.733005, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3twrt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.5
+offset_top = -120.5
+offset_right = 223.5
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tl1l1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g8ib8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ae8gy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4imr6")
+text = "START"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tl1l1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g8ib8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ae8gy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4imr6")
+text = "OPTIONS"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tl1l1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g8ib8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ae8gy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4imr6")
+text = "EXIT"
+
+[node name="title_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iasrv")
+}
+autoplay = "RESET"
+
+[node name="title" type="Label" parent="title_animation"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 101.0
+offset_right = 150.0
+offset_bottom = 149.0
+grow_horizontal = 2
+scale = Vector2(1, 1)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.597176, 0.597176, 0.597176, 1)
+theme_override_fonts/font = ExtResource("3_hcm55")
+theme_override_font_sizes/font_size = 48
+text = "Testing Menu"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
