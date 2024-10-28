@@ -17,11 +17,7 @@ func _process(delta: float) -> void:
 			inventory.close()
 		else:
 			inventory.open()
-	pass
 
-	# pohyb inventare pokud se pohybuje hrac:
-	#if inventory.visible:
-	#	inventory.position = $AnimatedPlayer.global_position + Vector2(250, 0)
 
 func _on_area_2d_on_enter() -> void:
 	is_in_zone = true
@@ -30,7 +26,6 @@ func _on_area_2d_on_enter() -> void:
 func _on_area_2d_on_exit() -> void:
 	is_in_zone = false
 	inventory.close()
-	pass # Replace with function body.
 
 func _on_coin_pick_up() -> void:
 	print("Player picked up coin")

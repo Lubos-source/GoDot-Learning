@@ -24,14 +24,16 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	PickUp.emit()
 	if body.has_method(\"player\"):
 		#print(\"player\")
 		player = body
 		player.collect(item)
-		PickUp.emit()
+		# discard scene (here specific coin scene)
+		queue_free()
 	else:
 		print(\"NOT a player\")
-	queue_free() # odstraní scénu (zde coin)
+	 
 	
 "
 

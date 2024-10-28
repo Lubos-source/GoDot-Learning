@@ -25,4 +25,3 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	interaction_hint.visible = false
 	OnExit.emit()
-	#pass # Replace with function body.

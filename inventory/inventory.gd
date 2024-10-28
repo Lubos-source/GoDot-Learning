@@ -8,6 +8,7 @@ signal update
 
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slot):return slot.item == item)
+	# if slot with specific item is not empty add amount number
 	if !itemslots.is_empty():
 		itemslots[0].amount += 1
 	else:

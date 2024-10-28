@@ -10,7 +10,7 @@ func update(slot: InvSlot):
 	else:
 		item_visual.visible = true
 		item_visual.texture = slot.item.texture
-		# zobrazuj cislo u itemu jen kdyz je jich vic nez 1
+		# show number of items if there are more then 1
 		if slot.amount > 1:
 			amount_text.visible = true
 		amount_text.text = str(slot.amount)
