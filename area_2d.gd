@@ -4,10 +4,12 @@ signal OnEnter
 signal OnExit 
 
 @onready var interaction_hint = $Label
+@onready var _animated_sprite = $animatedChar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interaction_hint.visible = false
+	_animated_sprite.play("NPC_idle")
 	#pass # Replace with function body.
 
 
@@ -18,10 +20,13 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	interaction_hint.visible = true
-	OnEnter.emit()
+	if body.has_method("player"):
+		interaction_hint.visible = true
+		OnEnter.emit()
+		
 	
 
 func _on_body_exited(body: Node2D) -> void:
-	interaction_hint.visible = false
-	OnExit.emit()
+	if body.has_method("player"):
+		interaction_hint.visible = false
+		OnExit.emit()

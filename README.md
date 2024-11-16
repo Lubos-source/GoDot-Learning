@@ -14,6 +14,8 @@
 - [x] Inventory with slots + different types of items with amount collected 
 - [x] Game Menu
 - [x] Scripted Label animation in menu
+- [x] UI
+    - [x] Health Bar
 
 
 ## TO DO:
@@ -22,7 +24,7 @@
     - [ ] Assets
     - [ ] Scripts
     - [ ] ...
-- [ ] UI
+- [ ] more UI
 - [ ] Game menu - Settings 
 - [ ] Audio Effects
 - [ ] More animations

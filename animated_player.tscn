@@ -1,8 +1,34 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc7uy863m3dwt"]
+[gd_scene load_steps=22 format=3 uid="uid://bc7uy863m3dwt"]
 
 [ext_resource type="Script" path="res://animated_player.gd" id="1_2d05w"]
 [ext_resource type="Texture2D" uid="uid://df4bwwwi1mkju" path="res://textures/Soldier-Walk.png" id="1_cltp7"]
 [ext_resource type="Resource" uid="uid://bv65hntdnxih0" path="res://inventory/player_inv.tres" id="2_3apwj"]
+[ext_resource type="Texture2D" uid="uid://b3welsv6ag12b" path="res://textures/Soldier-Idle.png" id="3_v6ivb"]
+[ext_resource type="Script" path="res://GUI/Health.gd" id="5_ts7cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvkea"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ehui"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmhge"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efft8"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q8gl"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2sqp"]
+atlas = ExtResource("3_v6ivb")
+region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myy61"]
 atlas = ExtResource("1_cltp7")
@@ -38,6 +64,29 @@ region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctxdr"]
 animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_rvkea")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_6ehui")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_nmhge")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_efft8")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_1q8gl")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_c2sqp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_myy61")
@@ -79,7 +128,37 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.81, 2.81)
 sprite_frames = SubResource("SpriteFrames_ctxdr")
-animation = &"walk"
+animation = &"idle"
+frame_progress = 0.100016
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3pw8k")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Health_Bar" type="ColorRect" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -28.0
+offset_right = 105.0
+offset_bottom = -8.0
+grow_vertical = 0
+color = Color(0.227451, 0.223529, 0.207843, 0.415686)
+script = ExtResource("5_ts7cp")
+
+[node name="State" type="ColorRect" parent="UI/Health_Bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -9.0
+offset_right = 49.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.598007, 0.171209, 0.229611, 1)

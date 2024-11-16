@@ -1,11 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc6p2ql0fkr4q"]
+[gd_scene load_steps=14 format=3 uid="uid://bc6p2ql0fkr4q"]
 
 [ext_resource type="Texture2D" uid="uid://chkmeg83o22yy" path="res://textures/Sylvester-Stallone.09.jpg" id="1_7m4sv"]
 [ext_resource type="Script" path="res://area_2d.gd" id="1_k0okn"]
+[ext_resource type="Texture2D" uid="uid://be8kyj5vanx0e" path="res://textures/Orc-Idle.png" id="2_guim5"]
 [ext_resource type="FontFile" uid="uid://cuy1yy8v6ys1e" path="res://fonts/minecraft.ttf" id="3_bm51v"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss1va"]
+atlas = ExtResource("2_guim5")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njm6r"]
+atlas = ExtResource("2_guim5")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3dr6"]
+atlas = ExtResource("2_guim5")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q21h8"]
+atlas = ExtResource("2_guim5")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wvvb"]
+atlas = ExtResource("2_guim5")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1sbl"]
+atlas = ExtResource("2_guim5")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cpe7"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ss1va")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_njm6r")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_e3dr6")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_q21h8")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_7wvvb")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_t1sbl")
+}],
+"loop": true,
+"name": &"NPC_idle",
+"speed": 10.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_blg4b"]
-radius = 80.025
+radius = 37.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_b4rh6"]
 line_spacing = 5.0
@@ -15,21 +66,32 @@ font = ExtResource("3_bm51v")
 position = Vector2(285, 94)
 script = ExtResource("1_k0okn")
 
+[node name="animatedChar" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_6cpe7")
+animation = &"NPC_idle"
+frame = 3
+frame_progress = 0.317501
+flip_h = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(8.53351, 12.3733)
-scale = Vector2(0.15806, 0.15806)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_7m4sv")
 region_rect = Rect2(136, 126, 233.724, 231.163)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 12)
+position = Vector2(5, 9)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_blg4b")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -22.0
-offset_top = -20.0
-offset_right = 94.0
-offset_bottom = 12.0
+offset_left = -27.0
+offset_top = -35.0
+offset_right = 89.0
+offset_bottom = -3.0
 text = "press F"
 label_settings = SubResource("LabelSettings_b4rh6")
 

@@ -12,7 +12,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_in_zone and Input.is_action_just_pressed("interact"):
+	# interakce s inventarem jen pokud je v dane area
+	#if is_in_zone and Input.is_action_just_pressed("interact"):
+	#	if inventory.is_open:
+	#		inventory.close()
+	#	else:
+	#		inventory.open()
+	# interakce s inventarem kdekoliv
+	if Input.is_action_just_pressed("interact"):
 		if inventory.is_open:
 			inventory.close()
 		else:
